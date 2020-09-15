@@ -1,14 +1,11 @@
 .header-component {
   @include background-gradient(#f53d2d, #f63);
   width: calc(100vw);
-  height: 6em;
+//   height: 6em;
 
   &__top {
     @include container(90%, 30%, 0.2em);
     display: flex;
-  }
-  &__bottom {
-    @include container(90%, 60%, 0.2em);
   }
 
   &__nav-top-left {
@@ -26,7 +23,8 @@
     }
     & div span {
       color: $secondary-color;
-      font-size: 0.8em;
+      font-size: 0.9em;
+      font-weight: bold;
     }
   }
 
@@ -36,5 +34,25 @@
 
   &__nav-top-center {
     flex-grow: 1;
+  }
+
+
+  &__bottom {
+    @include container(90%, 60%, 0.2em);
+    @include flex-center(row);
+  }
+
+  &__logo-main img {
+    max-width: 10em;
+    cursor: pointer;
+    padding: 1em 2em 1em 0;
+  }
+
+  &__nav-bar-main {
+    flex-grow: 1;
+  }
+
+  &__cart-icon {
+    @include flex-center(row);
   }
 }
