@@ -1,3 +1,40 @@
 .header-component {
-    @include background-gradient(#f53d2d,#f63);
+  @include background-gradient(#f53d2d, #f63);
+  width: calc(100vw);
+  height: 6em;
+
+  &__top {
+    @include container(90%, 30%, 0.2em);
+    display: flex;
+  }
+  &__bottom {
+    @include container(90%, 60%, 0.2em);
+  }
+
+  &__nav-top-left {
+    @include flex-center(row);
+    & div {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    & div::after {
+      content: " |";
+      color: $secondary-color;
+    }
+    & div:hover span {
+      color: $hover-color;
+    }
+    & div span {
+      color: $secondary-color;
+      font-size: 0.8em;
+    }
+  }
+
+  &__nav-top-right {
+      @extend .header-component__nav-top-left
+  }
+
+  &__nav-top-center {
+    flex-grow: 1;
+  }
 }

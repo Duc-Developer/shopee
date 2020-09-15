@@ -16,3 +16,10 @@
   );
   background: linear-gradient(-180deg, $from, $to);
 }
+
+@mixin container($width, $height, $padding) {
+  margin: auto;
+  width: $width;
+  height:  $height;
+  padding: $padding;
+}
