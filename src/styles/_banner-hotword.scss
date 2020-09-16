@@ -1,0 +1,44 @@
+.banner-hotword {
+    border-bottom: 1px solid #dddddd;
+
+    &--wrapper {
+        @include container(90%, 100%, 0);
+    }
+
+    &__main-banner-container {
+        margin-top: 2em;
+    }
+
+    &__main-banner-right {
+        padding-left: 0.3em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__list-hot-words {
+        @include flex-center(row);
+        justify-content: space-between;
+        margin: 1em 0 2em 0;
+    }
+
+    &__hot-word-item {
+        @include flex-center(column);
+        justify-content: space-between;
+        height: 6em;
+
+        & img {
+            max-width: 4em;
+            cursor: pointer;
+        }
+
+        & div {
+            max-width: 6em;
+            text-align: center;
+        }
+
+        &:hover {
+            transform: translateY(-2px)
+        }
+    }
+}
