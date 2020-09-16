@@ -1,0 +1,42 @@
+@mixin positionIconSlide() {
+    background-color: #222222;
+    opacity: 0.3;
+    padding: 0.5em 0.2em 0.5em 0.2em;
+    font-size: 2em;
+    color: white;
+    position:absolute;
+    cursor: pointer;
+    top: 35%;
+}
+
+.banner-auto-slide {
+    position: relative;
+
+    &__icon-previous {
+        @include positionIconSlide();
+        left: 0;
+        display: none;
+
+        &--on-show {
+            display: block;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    &__icon-next {
+        @include positionIconSlide();
+        right: 0;
+        display: none;
+
+        &--on-show {
+            display: block;
+        }
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
