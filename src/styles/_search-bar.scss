@@ -18,4 +18,18 @@
           opacity: 0.8;
       }
   }
+
+  &__list-keywords {
+    display: flex;
+    align-items: center;
+  }
+
+  &__keyword-item {
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+    
+    & span {
+      color: $secondary-color;
+    }
+  }
 }

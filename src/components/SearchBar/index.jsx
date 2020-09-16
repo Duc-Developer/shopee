@@ -4,8 +4,13 @@ import { Input } from "antd";
 import { Controller } from "react-hook-form";
 import { SearchOutlined } from "@ant-design/icons";
 
+SearchBar.propsTypes = {
+  control: PropTypes.object,
+  listKeywords: PropTypes.array
+}
+
 export default function SearchBar(props) {
-  const { control } = props;
+  const { control, listKeywords } = props;
   return (
     <div className="search-bar">
       <Controller
@@ -16,7 +21,7 @@ export default function SearchBar(props) {
             <div>
               <div className="search-bar__input-container">
                 <Input
-                  placeholder="input search text"
+                  placeholder="Tìm sản phẩm, thương hiệu và tên shop"
                   onChange={(e) => {
                     onChange(e.target.value);
                   }}
@@ -35,7 +40,17 @@ export default function SearchBar(props) {
                   />
                 </div>
               </div>
-              <div>keyword here</div>
+              <div className="search-bar__list-keywords">
+                {
+                  listKeywords && listKeywords.map((item, index) => {
+                    return (
+                      <div key={index} className="search-bar__keyword-item">
+                        <span>{item}</span>
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
           );
         }}
