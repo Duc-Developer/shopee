@@ -31,6 +31,7 @@ export default function BannerAutoSlide(props) {
                   style={{ cursor: "pointer" }}
                   src={item}
                   alt="banner-slide"
+                  width="100%"
                 />
               </div>
             );
