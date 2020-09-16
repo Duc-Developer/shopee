@@ -1,0 +1,78 @@
+.header-component {
+  @include background-gradient(#f53d2d, #f63);
+  width: calc(100vw);
+  //   height: 6em;
+
+  &__top {
+    @include container(90%, 30%, 0.2em);
+    display: flex;
+  }
+
+  &__nav-top-left {
+    @include flex-center(row);
+    & div {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    & div::after {
+      content: " |";
+      color: $secondary-color;
+    }
+    & div:hover span {
+      color: $hover-color;
+    }
+    & div span {
+      color: $secondary-color;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+  }
+
+  &__nav-top-right {
+    @extend .header-component__nav-top-left;
+  }
+
+  &__nav-top-center {
+    flex-grow: 1;
+  }
+
+  &__bottom {
+    @include container(90%, 60%, 0.2em);
+    @include flex-center(row);
+  }
+
+  &__logo-main a img {
+    max-width: 13em;
+    cursor: pointer;
+    padding: 1em 2em 1em 0;
+  }
+
+  &__nav-bar-main {
+    flex-grow: 1;
+  }
+
+  &__cart {
+    @include flex-center(row);
+    position: relative !important;
+  }
+  &__shopping-cart-icon {
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0 2em 0 2em;
+  }
+  &__products-cart {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #aaaa;
+    border-radius: 5px;
+    width: 30em;
+    height: 20em;
+    bottom: -20em;
+    right: 30%;
+    display: none;
+    &--is-active {
+      display: block;
+    }
+  }
+}
