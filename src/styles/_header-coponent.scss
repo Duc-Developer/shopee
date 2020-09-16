@@ -1,6 +1,8 @@
 .header-component {
   @include background-gradient(#f53d2d, #f63);
   width: calc(100vw);
+  position: fixed;
+  top: 0;
   //   height: 6em;
 
   &__top {
