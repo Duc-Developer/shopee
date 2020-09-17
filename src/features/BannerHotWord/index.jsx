@@ -62,7 +62,7 @@ export default function BannerHotWord() {
             return (
               <div key={index} className="banner-hotword__hot-word-item">
                 <img src={item.src} alt={item.content} />
-                <div>
+                <div className="banner-hotword__hot-word-item-content">
                   <span>{item.content}</span>
                 </div>
               </div>
