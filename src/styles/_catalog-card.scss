@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid #cccccc;
+    cursor: pointer;
 
     &__image {
         width: 90%;
@@ -17,6 +18,6 @@
     }
 
     &:hover {
-        box-shadow: 1px 1px #aaaaaa;
+        box-shadow: -2px 2px #aaaaaa;
     }
 }
