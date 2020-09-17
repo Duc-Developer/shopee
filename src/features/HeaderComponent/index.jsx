@@ -35,14 +35,14 @@ const fakeKeywords = [
   "makbook pro",
 ];
 let fakeStart = Math.floor(Math.random() * fakeKeywords.length);
-console.log(fakeStart);
+
 export default function HeaderComponent() {
   const { register, control, handleSubmit } = useForm({ defaultValues });
   const [isActive, setActive] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
   };
-  console.log(isActive);
+ 
   return (
     <div className="header-component">
       <div className="header-component__top">
