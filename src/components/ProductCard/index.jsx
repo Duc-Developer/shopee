@@ -54,7 +54,9 @@ export default function ProductCard(props) {
         <div className="product-card__sale--percent--pop">
           <b>{`${salePercent}%`}</b>
         </div>
+        <div className="product-card__image">
         <img src={src} alt={alt} />
+        </div>
         <div
           className={
             flashSale
