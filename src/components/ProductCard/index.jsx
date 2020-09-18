@@ -10,6 +10,8 @@ ProductCard.propTypes = {
   sold: PropTypes.number,
   salePercent: PropTypes.number,
   maxFlash: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
 
 ProductCard.defaultProps = {
@@ -28,6 +30,8 @@ function formatMoney(number) {
 
 export default function ProductCard(props) {
   const {
+    width,
+    height,
     src,
     alt,
     flashSale,
@@ -43,6 +47,7 @@ export default function ProductCard(props) {
   return (
     <div
       className="product-card-wrap"
+      style={{ width: width, height: height }}
       onMouseMove={() => {
         setShow(true);
       }}
@@ -55,7 +60,7 @@ export default function ProductCard(props) {
           <b>{`${salePercent}%`}</b>
         </div>
         <div className="product-card__image">
-        <img src={src} alt={alt} />
+          <img src={src} alt={alt} />
         </div>
         <div
           className={
