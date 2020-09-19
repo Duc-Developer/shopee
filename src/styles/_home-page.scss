@@ -7,4 +7,20 @@
         margin: 1em 0 1em 5%;
         cursor: pointer;
     }
+
+    &__body-banner {
+        display: flex;
+        @include container(90%, 100%, 0);
+        &--left {
+            display: flex;
+            flex-basis: 70%;
+            img {
+                width: 50%;
+            }
+        }
+
+        &--right {
+            flex-basis: 30%;
+        }
+    }
 }
