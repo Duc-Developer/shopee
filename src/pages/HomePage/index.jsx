@@ -6,6 +6,7 @@ import FlashSaleContainer from "../../features/FlashSale";
 import superFlashBannerLeft from "../../assist/images/shopp_super_voucher_background_left.jpeg";
 import superFlashBannerRight from "../../assist/images/shopp_super_voucher_background_right.jpeg";
 import shopeeMartBanners from "../../assist/images/shopee_mart_background.jpeg";
+import ShopeeMallDeal from "../../features/ShopeeMallDeal";
 
 
 export default function HomePage(props) {
@@ -24,6 +25,7 @@ export default function HomePage(props) {
           <img src={shopeeMartBanners} alt="shopee-mart-banner" />
         </div>
       </div>
+      <ShopeeMallDeal />
     </div>
   );
 }
