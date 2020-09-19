@@ -1,3 +1,43 @@
 .flash-sale-container {
     @include container(90%, 100%, 0);
+    background-color: $secondary-color;
+    margin-top: 1em;
+    position: relative;
+
+    &__header {
+        padding: 1em 0 1em 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-right: 1em;
+    }
+
+    &__product {
+        float: left;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    &__button-group {
+        position: absolute;
+        display: flex;
+        width: 104%;
+        justify-content: space-between;
+        top: 50%;
+        left: -2%;
+    }
+
+    &__button-back-icon, &__button-next-icon {
+        font-size: 2em;
+        cursor: pointer;
+        color: #aaaaaa;
+
+        &:hover {
+            font-size: 3em;
+        }
+    }
 }
