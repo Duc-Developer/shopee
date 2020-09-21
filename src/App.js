@@ -7,22 +7,24 @@ import {
   Redirect
 } from "react-router-dom";
 import HomePage from './pages/HomePage';
-import HeaderComponent from './features/HeaderComponent';
 import FooterComponent from './features/FooterComponent';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <div className="App">
-      <HeaderComponent />
       <Router>
-        <Redirect exact to="/home" />
+        <Redirect exact from="/" to="/home" />
         <Switch>
           <Route exact path="/home">
             <HomePage />
           </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
         </Switch>
-      </Router>
       <FooterComponent />
+      </Router>
     </div>
   );
 }

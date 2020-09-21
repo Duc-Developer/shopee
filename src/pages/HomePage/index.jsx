@@ -8,10 +8,12 @@ import superFlashBannerRight from "../../assist/images/shopp_super_voucher_backg
 import shopeeMartBanners from "../../assist/images/shopee_mart_background.jpeg";
 import ShopeeMallDeal from "../../features/ShopeeMallDeal";
 import SuggestProducts from "../../features/SuggestProducts";
+import HeaderComponent from "../../features/HeaderComponent";
 
 export default function HomePage(props) {
   return (
     <div className="home-page">
+      <HeaderComponent />
       <BannerHotWord />
       <img width="90%" src={shopeePayBanners} alt="banner-pay-online" />
       <Catalog />
