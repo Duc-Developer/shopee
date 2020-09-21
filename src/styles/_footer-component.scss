@@ -1,0 +1,17 @@
+.footer-component {
+    width: 100%;
+    border-top: 5px solid $primary-color;
+
+    &__about {
+        @include container(90%, 100%, 0);
+        margin-top: 1em;
+
+        &-box {
+            margin: 2em 0 2em 0;
+
+            h3 {
+                font-weight: 700;
+            }
+        }
+    }
+}

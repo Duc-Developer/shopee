@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import HeaderComponent from './features/HeaderComponent';
+import FooterComponent from './features/FooterComponent';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <FooterComponent />
     </div>
   );
 }
