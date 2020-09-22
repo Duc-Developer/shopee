@@ -1,4 +1,25 @@
 {
+    "users": [
+        {
+            "id": "17001-23--ee56",
+            "username": "admin001",
+            "password": "123456",
+            "image": "https://picsum.photos/200",
+            "cart": [
+                {
+                    "name": "Basil - Fresh",
+                    "src": "https://picsum.photos/200/300?random=8",
+                    "price": 2511133,
+                    "id": "2bd825a0-9df9-4254-9283-9353aff91df9"
+                }, {
+                    "name": "Juice - Clamato, 341 Ml",
+                    "src": "https://picsum.photos/200/300?random=4",
+                    "price": 4072255,
+                    "id": "7da5845c-75bb-49cc-ab9f-c8e66d0abff5"
+                }
+            ]
+        }
+    ],
     "products": [{
         "name": "Basil - Fresh",
         "src": "https://picsum.photos/200/300?random=8",

@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import SearchBar from "../../components/SearchBar";
 import classNames from "classnames";
+import { useHistory } from "react-router-dom";
 
 const defaultValues = {
   search: "asfds",
@@ -39,10 +40,12 @@ let fakeStart = Math.floor(Math.random() * fakeKeywords.length);
 export default function HeaderComponent() {
   const { register, control, handleSubmit } = useForm({ defaultValues });
   const [isActive, setActive] = useState(false);
+  const history = useHistory();
+
   const onSubmit = (data) => {
     console.log(data);
   };
- 
+
   return (
     <div className="header-component">
       <div className="header-component__top">
@@ -73,7 +76,13 @@ export default function HeaderComponent() {
             <span>Đăng Ký</span>
           </div>
           <div>
-            <span>Đăng Nhập</span>
+            <span
+              onClick={() => {
+                history.push("/login");
+              }}
+            >
+              Đăng Nhập
+            </span>
           </div>
         </div>
       </div>
