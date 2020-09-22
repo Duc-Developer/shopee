@@ -1,22 +1,41 @@
 import { Button, Col, Form, Input, Row } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assist/images/shopee_logo.png";
 import { UserOutlined, ToolOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { authConstants as type } from "../../constants";
+import { useHistory } from "react-router-dom";
 
 export default function LoginPage(props) {
-  const [values, setValues] = useState({username: null, password: null});
+  const [values, setValues] = useState({ username: null, password: null });
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const message = useSelector((state) => state.auth.message);
+  const userCurrent = useSelector((state) => state.auth.user);
+
+  useEffect(() => {
+    function redirect() {
+      if (userCurrent) {
+        history.push("/home");
+      }
+    }
+    let timer = setTimeout(redirect, 3000);
+  }, [userCurrent]);
 
   const onFinish = (values) => {
-    console.log("Success:", values);
+    dispatch({
+      type: type.LOGIN_REQUEST,
+      payload: values,
+    });
   };
 
   const onValuesChange = (input) => {
     setValues({
       ...values,
-      ...input
-    })
-  }
-  
+      ...input,
+    });
+  };
+
   return (
     <div className="login-page">
       <div className="login-page__header">
@@ -71,12 +90,17 @@ export default function LoginPage(props) {
                 htmlType="submit"
                 size="large"
                 type="primary"
-                disabled={
-                  (!values.username || !values.password) ? true : false
-                }
+                disabled={!values.username || !values.password ? true : false}
               >
                 Đăng Nhập
               </Button>
+              <div>
+                {message && (
+                  <span>
+                    <i>{message}</i>
+                  </span>
+                )}
+              </div>
               <div className="login-page__form--line-space">
                 <span>Hoặc</span>
               </div>
