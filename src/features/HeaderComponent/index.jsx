@@ -12,29 +12,13 @@ import { useForm } from "react-hook-form";
 import SearchBar from "../../components/SearchBar";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
+import data from "../../fakeData.json";
 
 const defaultValues = {
   search: "asfds",
 };
 
-const fakeKeywords = [
-  "dép nữ",
-  "áo thun",
-  "áo lót bầu",
-  "xà đơn treo tường",
-  "sandal nữ",
-  "vòng lắp eo",
-  "cặp đen đi học",
-  "balo chat",
-  "áo ngực SU ĐÚC",
-  "set son merzy",
-  "Dép bông",
-  "Dép",
-  "iphone 12",
-  "ipod air 2",
-  "makbook air",
-  "makbook pro",
-];
+const fakeKeywords = data.key;
 let fakeStart = Math.floor(Math.random() * fakeKeywords.length);
 
 export default function HeaderComponent() {
