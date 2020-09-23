@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Col, Row } from "antd";
 import logo from "../../assist/images/shopee_logo.png";
 import {
   BellOutlined,
@@ -8,27 +7,16 @@ import {
   QuestionCircleOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { useForm } from "react-hook-form";
 import SearchBar from "../../components/SearchBar";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 import data from "../../fakeData.json";
 
-const defaultValues = {
-  search: "asfds",
-};
-
-const fakeKeywords = data.key;
-let fakeStart = Math.floor(Math.random() * fakeKeywords.length);
 
 export default function HeaderComponent() {
-  const { register, control, handleSubmit } = useForm({ defaultValues });
   const [isActive, setActive] = useState(false);
   const history = useHistory();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const fakeKeywords = data.key;
 
   return (
     <div className="header-component">
@@ -77,12 +65,7 @@ export default function HeaderComponent() {
           </a>
         </div>
         <div className="header-component__nav-bar-main">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <SearchBar
-              listKeywords={fakeKeywords.slice(fakeStart, fakeStart + 5)}
-              control={control}
-            />
-          </form>
+          <SearchBar listKeywords={fakeKeywords} />
         </div>
         <div className="header-component__cart">
           <ShoppingCartOutlined
