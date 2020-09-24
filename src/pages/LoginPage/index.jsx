@@ -39,7 +39,9 @@ export default function LoginPage(props) {
   return (
     <div className="login-page">
       <div className="login-page__header">
-        <img src={logo} alt="logo-header-login-page" />
+        <a href="/">
+          <img src={logo} alt="logo-header-login-page" />
+        </a>
       </div>
       <div className="login-page__content">
         <Row>

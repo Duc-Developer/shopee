@@ -18,6 +18,13 @@ export default function HeaderComponent() {
   const history = useHistory();
   const fakeKeywords = data.key;
 
+  const handleSearch = (value) => {
+    history.push({
+      pathname: "/products",
+      search: `?key=${value}`
+    })
+  }
+
   return (
     <div className="header-component">
       <div className="header-component__top">
@@ -65,7 +72,10 @@ export default function HeaderComponent() {
           </a>
         </div>
         <div className="header-component__nav-bar-main">
-          <SearchBar listKeywords={fakeKeywords} />
+          <SearchBar 
+          handleSearch={handleSearch}
+          listKeywords={fakeKeywords} 
+          />
         </div>
         <div className="header-component__cart">
           <ShoppingCartOutlined

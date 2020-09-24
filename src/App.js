@@ -9,6 +9,7 @@ import {
 import HomePage from './pages/HomePage';
 import FooterComponent from './features/FooterComponent';
 import LoginPage from './pages/LoginPage';
+import NotFoundPage from './pages/NotFound';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
+          <Route component={() => <NotFoundPage />} />
         </Switch>
       <FooterComponent />
       </Router>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { Input, Form } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 SearchBar.propsTypes = {
   listKeywords: PropTypes.array,
+  handleSearch: PropTypes.func
 };
 
 function clearMarkers(str) {
@@ -26,22 +27,35 @@ function clearMarkers(str) {
 }
 
 export default function SearchBar(props) {
-  const { listKeywords } = props;
+  const { listKeywords, handleSearch } = props;
   const [suggestKeys, setSuggestKeys] = useState([]);
   const [form] = Form.useForm();
   let fakeStart = Math.floor(Math.random() * listKeywords.length);
+  const renderKeyWords = useMemo(() => {
+    return listKeywords.slice(fakeStart, fakeStart + 5).map((item, index) => {
+      return (
+        <div key={index} className="search-bar__keyword-item">
+          <span>{item}</span>
+        </div>
+      );
+    });
+  }, [listKeywords]);
 
   const onValuesChange = (value) => {
+    if (value.search === "") {
+      setSuggestKeys(null);
+      return;
+    }
     let matched = listKeywords.filter((item) => {
       let key = clearMarkers(item);
       let suggest = clearMarkers(value.search);
-      return key.indexOf(suggest) !== -1;
+      return key.toLowerCase().indexOf(suggest.toLowerCase()) !== -1;
     });
     setSuggestKeys(matched);
   };
 
   const onFinish = (value) => {
-    console.log(value);
+    handleSearch(value.search);
   };
 
   return (
@@ -79,14 +93,15 @@ export default function SearchBar(props) {
           })}
       </div>
       <div className="search-bar__list-keywords">
-        {listKeywords &&
+        {/* {listKeywords &&
           listKeywords.slice(fakeStart, fakeStart + 5).map((item, index) => {
             return (
               <div key={index} className="search-bar__keyword-item">
                 <span>{item}</span>
               </div>
             );
-          })}
+          })} */}
+        {renderKeyWords}
       </div>
     </div>
   );
