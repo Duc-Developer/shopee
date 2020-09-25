@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import FooterComponent from './features/FooterComponent';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFound';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
+          <Route exact path="/products">
+            <ProductsPage />
+          </Route>
+
           <Route component={() => <NotFoundPage />} />
         </Switch>
       <FooterComponent />

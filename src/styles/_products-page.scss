@@ -1,0 +1,22 @@
+.products-page {
+    padding-top: 12em;
+    margin-bottom: 1em;
+
+    &__wrap {
+        @include container(90%, 100%, 0);
+    }
+
+    &__title {
+        h1 {
+            font-weight: 700;
+        }
+    }
+
+    &__product-container {
+        margin-bottom: 5em;
+    }
+
+    &__product-item {
+        margin: 0 0.5em 0 0.5em;
+    }
+}

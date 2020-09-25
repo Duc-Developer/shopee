@@ -16,12 +16,12 @@ ProductCard.propTypes = {
 
 ProductCard.defaultProps = {
   flashSale: false,
-  price: 10000,
+  price: 0,
   src: "https://picsum.photos/200",
-  name: "Thao duoc tri mun [FREE SHIP] mieng lot mun han quoc chinh hang",
-  sold: 50,
-  salePercent: 30,
-  maxFlash: 100,
+  name: "",
+  sold: 0,
+  salePercent: 0,
+  maxFlash: 0,
 };
 
 function formatMoney(number) {
