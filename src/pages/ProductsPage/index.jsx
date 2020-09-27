@@ -56,6 +56,7 @@ export default function ProductsPage() {
                       sold={product.sold}
                       salePercent={product.sale}
                       name={product.name}
+                      id={product.id}
                     />
                   </Col>
                 </div>
