@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 ProductCard.propTypes = {
   flashSale: PropTypes.bool,
@@ -12,6 +13,7 @@ ProductCard.propTypes = {
   maxFlash: PropTypes.number,
   width: PropTypes.string,
   height: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 ProductCard.defaultProps = {
@@ -40,9 +42,11 @@ export default function ProductCard(props) {
     sold,
     salePercent,
     maxFlash,
+    id
   } = props;
   const priceText = formatMoney(price);
   const [isShow, setShow] = useState(false);
+  const history = useHistory();
 
   return (
     <div
@@ -55,7 +59,10 @@ export default function ProductCard(props) {
         setShow(false);
       }}
     >
-      <div className="product-card">
+      <div 
+      onClick={() => {history.push(`/products/${id}`)}}
+      className="product-card"
+      >
         <div className="product-card__sale--percent--pop">
           <b>{`${salePercent}%`}</b>
         </div>

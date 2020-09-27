@@ -2,10 +2,8 @@ import React from "react";
 import data from "../../fakeData.json";
 import ProductCard from "../../components/ProductCard";
 import { Col, Row } from "antd";
-import { useHistory } from "react-router-dom";
 
 export default function SuggestProducts() {
-  const history = useHistory();
   return (
     <div className="suggest-products">
       <div className="suggest-products__title">
@@ -20,12 +18,9 @@ export default function SuggestProducts() {
                 className="suggest-products__product-item"
                 key={item.id}
               >
-                <div
-                  onClick={() => {
-                    history.push(`/products/${item.id}`);
-                  }}
-                >
+                <div>
                   <ProductCard
+                    id={item.id}
                     src={item.src}
                     name={item.name}
                     price={item.price}

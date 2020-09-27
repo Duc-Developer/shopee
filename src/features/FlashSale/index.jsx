@@ -1,18 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import ProductCard from "../../components/ProductCard";
 import TimeCountDown from "../../components/TimeCountDown";
 import data from "../../fakeData.json";
 import { Carousel } from "antd";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+
 
 export default function FlashSaleContainer(props) {
   const start = Math.floor(Math.random() * (data.products.length - 16));
   const productSlices = data.products.slice(start, start + 15);
-  const history =useHistory();
   const innerRef = useRef(null);
-console.log(history)
+
   return (
     <div className="flash-sale-container">
       <div className="flash-sale-container__header">
@@ -32,8 +31,6 @@ console.log(history)
                     <div
                       key={id}
                       className="flash-sale-container__product"
-
-                      onClick={() => {history.push(`/products/${id}`)}}
                     >
                       <ProductCard
                         src={src}
