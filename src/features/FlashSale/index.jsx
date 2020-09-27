@@ -5,12 +5,14 @@ import TimeCountDown from "../../components/TimeCountDown";
 import data from "../../fakeData.json";
 import { Carousel } from "antd";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 
 export default function FlashSaleContainer(props) {
   const start = Math.floor(Math.random() * (data.products.length - 16));
   const productSlices = data.products.slice(start, start + 15);
+  const history =useHistory();
   const innerRef = useRef(null);
-
+console.log(history)
   return (
     <div className="flash-sale-container">
       <div className="flash-sale-container__header">
@@ -25,11 +27,13 @@ export default function FlashSaleContainer(props) {
             return (
               <div key={index}>
                 {productSlices.slice(num, num + 5).map((item) => {
-                  const { src, name, price, sold, sale, maxFlash } = item;
+                  const { src, name, price, sold, sale, maxFlash, id } = item;
                   return (
                     <div
-                      key={item.id}
+                      key={id}
                       className="flash-sale-container__product"
+
+                      onClick={() => {history.push(`/products/${id}`)}}
                     >
                       <ProductCard
                         src={src}
@@ -40,6 +44,7 @@ export default function FlashSaleContainer(props) {
                         maxFlash={maxFlash}
                         width="16.3em"
                         flashSale={true}
+                        id={id}
                       />
                     </div>
                   );

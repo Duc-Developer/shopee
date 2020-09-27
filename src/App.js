@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Redirect exact from="/" to="/home" /> */}
+        <Redirect exact from="/" to="/home" />
         <Switch>
           <Route exact path="/home">
             <HomePage />

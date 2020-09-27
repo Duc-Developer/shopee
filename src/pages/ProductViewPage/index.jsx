@@ -4,7 +4,7 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Button, Col, Input, Row } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../fakeData.json";
 import HeaderComponent from "../../features/HeaderComponent";
@@ -27,6 +27,10 @@ export default function ProductViewPage() {
       ? setValue(productMatch.maxFlash)
       : setValue(value + 1);
   }
+
+  useEffect(() => {
+    window.scrollTo({top: 0})
+  }, [])
 
   return (
     <div className="product-view-page">
