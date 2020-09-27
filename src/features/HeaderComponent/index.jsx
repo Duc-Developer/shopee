@@ -11,19 +11,19 @@ import SearchBar from "../../components/SearchBar";
 import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 import data from "../../fakeData.json";
-
+import { useSelector } from "react-redux";
 
 export default function HeaderComponent() {
   const [isActive, setActive] = useState(false);
   const history = useHistory();
   const fakeKeywords = data.key;
-
+  const user = useSelector((state) => state.auth.user);
   const handleSearch = (value) => {
     history.push({
       pathname: "/products",
-      search: `?key=${value}`
-    })
-  }
+      search: `?key=${value}`,
+    });
+  };
 
   return (
     <div className="header-component">
@@ -51,18 +51,26 @@ export default function HeaderComponent() {
             <QuestionCircleOutlined />
             <span>Trợ Giúp</span>
           </div>
-          <div>
-            <span>Đăng Ký</span>
-          </div>
-          <div>
-            <span
-              onClick={() => {
-                history.push("/login");
-              }}
-            >
-              Đăng Nhập
-            </span>
-          </div>
+          {!user ? (
+            <>
+              <div>
+                <span>Đăng Ký</span>
+              </div>
+              <div>
+                <span
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                >
+                  Đăng Nhập
+                </span>
+              </div>
+            </>
+          ) : (
+            <div>
+              <b>{user.username}</b>
+            </div>
+          )}
         </div>
       </div>
       <div className="header-component__bottom">
@@ -72,10 +80,7 @@ export default function HeaderComponent() {
           </a>
         </div>
         <div className="header-component__nav-bar-main">
-          <SearchBar 
-          handleSearch={handleSearch}
-          listKeywords={fakeKeywords} 
-          />
+          <SearchBar handleSearch={handleSearch} listKeywords={fakeKeywords} />
         </div>
         <div className="header-component__cart">
           <ShoppingCartOutlined
