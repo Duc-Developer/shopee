@@ -1,8 +1,26 @@
 @import './styles/variables';
 @import './styles/typography';
 @import './styles/mixins';
+
 @import './styles/header-coponent';
+@import './styles/footer-component';
+
 @import './styles/search-bar';
+@import './styles/banner-hotword';
+@import './styles/banner-auto-slide';
+@import './styles/_catalog-main.scss';
+@import './styles/_catalog-card.scss';
+@import './styles/_flash-sale-container.scss';
+@import './styles/_product-card.scss';
+@import './styles/_time-count-down.scss';
+@import './styles/_shopee-mall-deal.scss';
+@import './styles/_suggest-products.scss';
+
+@import './styles/_not-found-page.scss';
+@import './styles/home-page';
+@import './styles/login-page';
+@import './styles/_products-page.scss';
+@import './styles/product-view-page.scss';
 
 @import '~antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');

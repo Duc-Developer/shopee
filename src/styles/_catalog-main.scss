@@ -1,0 +1,60 @@
+.catalog-main {
+  @include container(90%, 100%, 0);
+  background-color: $secondary-color;
+  padding-top: 1em;
+  position: relative;
+
+  &__title {
+    margin-left: 1em;
+    & h3 {
+      font-weight: bold;
+    }
+  }
+
+  &__catalog-list {
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--top {
+      display: flex;
+    }
+
+    &--bottom {
+      display: flex;
+    }
+  }
+
+  &__icon-scroll-left {
+      font-size: 2em;
+      position: absolute;
+      top: 52%;
+      left: -12px;
+      color: #aaaaaa;
+
+      &:hover {
+        font-size: 4em;
+        top: 49%;
+        left: -30px;
+        color: #aaaaaa;
+      }
+  }
+
+  &__icon-scroll-right {
+    font-size: 2em;
+    position: absolute;
+    top: 52%;
+    right: -12px;
+    color: #aaaaaa;
+
+    &:hover {
+      font-size: 4em;
+      top: 49%;
+      right: -30px;
+      color: #aaaaaa;
+    }
+  }
+}

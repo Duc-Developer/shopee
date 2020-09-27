@@ -1,0 +1,30 @@
+.not-found-page {
+    @include container(90%, 100%, 0);
+    @include flex-center(column);
+    height: calc(100vh);
+
+    &__alert-box {
+        width: 50%;
+        height: 50%;
+        background-color: $primary-color;
+        border-radius: 5px;
+    }
+
+    &__title {
+        h1 {
+            color: $secondary-color;
+            font-weight: bold;
+        }
+    }
+
+    &__content {
+        span {
+            font-size: 1.5em;
+        }
+
+        img {
+            width: 90%;
+            margin-top: 1em;
+        }
+    }
+}

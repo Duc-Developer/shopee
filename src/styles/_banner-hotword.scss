@@ -1,0 +1,50 @@
+.banner-hotword {
+  border-bottom: 1px solid #dddddd;
+  @include container(90%, 100%, 0);
+  background-color: $secondary-color;
+
+  &--wrapper {
+    // @include container(90%, 100%, 0);
+    // background-color: $secondary-color;
+  }
+
+  &__main-banner-container {
+    // margin-top: 2em;
+  }
+
+  &__main-banner-right {
+    padding-left: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__list-hot-words {
+    @include flex-center(row);
+    justify-content: space-evenly;
+    margin: 1em 0 2em 0;
+  }
+
+  &__hot-word-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 7em;
+
+    & img {
+      max-width: 3em;
+      cursor: pointer;
+    }
+
+    &-content {
+      max-width: 6em;
+      flex-basis: 40%;
+      text-align: center;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

@@ -1,0 +1,5 @@
+export const cartConstants = {
+    ADD_TO_CART: 'ADD_TO_CART',
+    ADD_TO_CART_SUCCESS: 'ADD_TO_CART_SUCCESS',
+    ADD_TO_CART_FAILURE: 'ADD_TO_CART_FAILURE'
+}

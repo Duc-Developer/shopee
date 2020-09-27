@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Col, Row } from "antd";
 import logo from "../../assist/images/shopee_logo.png";
 import {
   BellOutlined,
@@ -8,41 +7,26 @@ import {
   QuestionCircleOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { useForm } from "react-hook-form";
 import SearchBar from "../../components/SearchBar";
 import classNames from "classnames";
+import { useHistory } from "react-router-dom";
+import data from "../../fakeData.json";
+import { useSelector } from "react-redux";
 
-const defaultValues = {
-  search: "asfds",
-};
-
-const fakeKeywords = [
-  "dép nữ",
-  "áo thun",
-  "áo lót bầu",
-  "xà đơn treo tường",
-  "sandal nữ",
-  "vòng lắp eo",
-  "cặp đen đi học",
-  "balo chat",
-  "áo ngực SU ĐÚC",
-  "set son merzy",
-  "Dép bông",
-  "Dép",
-  "iphone 12",
-  "ipod air 2",
-  "makbook air",
-  "makbook pro",
-];
-let fakeStart = Math.floor(Math.random() * fakeKeywords.length);
-console.log(fakeStart);
 export default function HeaderComponent() {
-  const { register, control, handleSubmit } = useForm({ defaultValues });
   const [isActive, setActive] = useState(false);
-  const onSubmit = (data) => {
-    console.log(data);
+  const history = useHistory();
+  const fakeKeywords = data.key;
+  const user = useSelector((state) => state.auth.user);
+  const cart = useSelector((state) => state.cart);
+
+  const handleSearch = (value) => {
+    history.push({
+      pathname: "/products",
+      search: `?key=${value}`,
+    });
   };
-  console.log(isActive);
+
   return (
     <div className="header-component">
       <div className="header-component__top">
@@ -69,12 +53,26 @@ export default function HeaderComponent() {
             <QuestionCircleOutlined />
             <span>Trợ Giúp</span>
           </div>
-          <div>
-            <span>Đăng Ký</span>
-          </div>
-          <div>
-            <span>Đăng Nhập</span>
-          </div>
+          {!user ? (
+            <>
+              <div>
+                <span>Đăng Ký</span>
+              </div>
+              <div>
+                <span
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                >
+                  Đăng Nhập
+                </span>
+              </div>
+            </>
+          ) : (
+            <div>
+              <b>{user.username}</b>
+            </div>
+          )}
         </div>
       </div>
       <div className="header-component__bottom">
@@ -84,12 +82,7 @@ export default function HeaderComponent() {
           </a>
         </div>
         <div className="header-component__nav-bar-main">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <SearchBar
-              listKeywords={fakeKeywords.slice(fakeStart, fakeStart + 5)}
-              control={control}
-            />
-          </form>
+          <SearchBar handleSearch={handleSearch} listKeywords={fakeKeywords} />
         </div>
         <div className="header-component__cart">
           <ShoppingCartOutlined
@@ -101,6 +94,9 @@ export default function HeaderComponent() {
             }}
             className="header-component__shopping-cart-icon"
           />
+          <div className="header-component__shopping-cart-totals">
+            <span>{cart.totals}</span>
+          </div>
           <div
             onMouseMove={() => {
               setActive(true);
@@ -112,7 +108,31 @@ export default function HeaderComponent() {
               "header-component__products-cart--is-active": isActive,
             })}
           >
-            cart product here
+            {!cart.products.length ? (
+              <div>
+                <h1>Cart is empty</h1>
+              </div>
+            ) : (
+              cart.products.map((product) => {
+                return (
+                  <div
+                    className="header-component__products-cart-item"
+                    key={product.id}
+                  >
+                    <div className="header-component__products-cart-item-image">
+                      <img src={product.src} alt="cart-product-image" />
+                    </div>
+
+                    <div className="header-component__products-cart-item-name">
+                      <span>{product.name}</span>
+                    </div>
+                    <div className="header-component__products-cart-item-amount">
+                      <span>{product.amount}</span>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </div>

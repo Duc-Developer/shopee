@@ -1,0 +1,76 @@
+.login-page {
+  background-color: $primary-color;
+  padding-top: 1em;
+
+  &__header {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $secondary-color;
+
+    & img {
+      width: 10em;
+    }
+  }
+
+  &__content {
+    padding-top: 1em;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 1em;
+    text-align: center;
+
+    &-left {
+      @include flex-center(column);
+      height: 100%;
+      & img {
+        width: 40em;
+      }
+
+      & span {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30em;
+    background-color: $secondary-color;
+    border-radius: 5px;
+
+    div span {
+      color: black;
+      a {
+        color: $primary-color;
+      }
+    }
+
+    &--line-space {
+      &::before {
+        content: "---------------------------------------------- ";
+        color: #aaaaaa;
+      }
+      &::after {
+        content: " ----------------------------------------------";
+        color: #aaaaaa;
+      }
+    }
+  }
+
+  &__input {
+    width: 90%;
+    height: 2em;
+  }
+
+  &__button {
+    width: 90%;
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+  }
+}

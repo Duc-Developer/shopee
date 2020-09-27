@@ -1,0 +1,23 @@
+.catalog-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+
+    &__image {
+        width: 90%;
+    }
+
+    &__title {
+        flex-basis: 30%;
+        & span {
+            font-weight: 700;
+        }
+    }
+
+    &:hover {
+        box-shadow: -2px 2px #aaaaaa;
+    }
+}

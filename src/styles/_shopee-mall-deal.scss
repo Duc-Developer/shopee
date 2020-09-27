@@ -1,0 +1,84 @@
+@mixin positionIcon() {
+  position: absolute;
+  top: 45%;
+  font-size: 2em;
+  padding: 0.3em;
+  box-shadow: 2px 2px 10px #aaaaaa;
+  background-color: white;
+  color: #aaaaaa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.shopee-mall-deal {
+  @include container(90%, 100%, 0);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1em;
+
+    &-icon {
+      color: white;
+      background-color: red;
+      border-radius: 50%;
+      padding: 0.2em;
+    }
+
+    &-title {
+      padding: 0 1em 0 1em;
+
+      span {
+        font-size: 1.5em;
+        color: red;
+        font-weight: bold;
+      }
+
+      &::after {
+        content: " |";
+        color: #aaaaaa;
+        font-size: 1.5em;
+      }
+    }
+
+    &-slogan {
+      margin: 0 1em 0 1em;
+
+      span {
+        font-family: $font-secondary;
+      }
+    }
+  }
+
+  &__content {
+    background-color: white;
+    padding: 0.5em;
+    &--left {
+        
+    }
+
+    &--right {
+      position: relative;
+    }
+
+    &-prev-icon {
+        @include positionIcon();
+        left: -20px;
+    }
+
+    &-next-icon {
+        @include positionIcon();
+        right: -30px;
+    }
+  }
+
+  &__deal-item {
+    float: left;
+    width: 25%;
+
+    img {
+      width: 100%;
+    }
+  }
+}
