@@ -19,7 +19,7 @@ export default function LoginPage(props) {
         history.push("/home");
       }
     }
-    let timer = setTimeout(redirect, 3000);
+    let timer = setTimeout(redirect, 2000);
   }, [userCurrent]);
 
   const onFinish = (values) => {
