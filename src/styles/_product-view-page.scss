@@ -1,0 +1,94 @@
+.product-view-page {
+  padding-top: 12em;
+  padding-bottom: 10em;
+
+  background-color: #dddddd;
+
+  &__container {
+    @include container(90%, 100%, 0);
+    background-color: white;
+    padding: 1em 0 1em 0;
+  }
+
+  &__image-box {
+    @include flex-center(row);
+  }
+
+  &__main-image {
+    width: 50%;
+  }
+
+  &__description {
+    &-title {
+      b {
+        font-size: 2.5em;
+      }
+    }
+    &-about {
+      span {
+        font-size: 1.2em;
+      }
+    }
+    &-price {
+      font-size: 1.5em;
+      color: $primary-color;
+
+      &::after {
+        content: "đ";
+      }
+    }
+  }
+
+  &__add-to-cart {
+    &-amount {
+      width: 10em;
+      margin: 1em 0 1em 0;
+
+      &::before {
+        content: "Số lượng:";
+        font-size: 1.5em;
+      }
+
+      &-input {
+        font-weight: bold;
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type="number"] {
+          -moz-appearance: textfield;
+          text-align: center;
+        }
+
+        &:hover {
+            border: 1px solid $primary-color;
+        }
+      }
+
+      &--minus {
+        border-right: 1px solid #ccc;
+        padding-right: 0.5em;
+        cursor: pointer;
+      }
+
+      &--plus {
+        border-left: 1px solid #ccc;
+        padding-left: 0.5em;
+        cursor: pointer;
+      }
+    }
+
+    &-button {
+      background-color: #fae9e9;
+      border: 1px solid $primary-color;
+      color: $primary-color;
+
+      &:hover {
+        background-color: #fdcccc;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}
