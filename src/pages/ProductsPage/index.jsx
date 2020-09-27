@@ -34,6 +34,7 @@ export default function ProductsPage() {
       return productName.indexOf(key) !== -1;
     });
     setResult(match);
+    window.scrollTo({top: 0})
   }, [key, result.length]);
   return (
     <div className="products-page">
