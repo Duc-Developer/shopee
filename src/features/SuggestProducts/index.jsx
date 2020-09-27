@@ -25,6 +25,7 @@ export default function SuggestProducts() {
                     name={item.name}
                     price={item.price}
                     sold={item.sold}
+                    salePercent={item.sale}
                     width="100%"
                   />
                 </div>

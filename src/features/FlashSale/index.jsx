@@ -39,6 +39,7 @@ export default function FlashSaleContainer(props) {
                         sold={sold}
                         sale={sale}
                         maxFlash={maxFlash}
+                        salePercent={sale}
                         width="16.3em"
                         flashSale={true}
                         id={id}
