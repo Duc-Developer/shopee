@@ -5,9 +5,11 @@ import {
 } from "@ant-design/icons";
 import { Button, Col, Input, Row } from "antd";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import data from "../../fakeData.json";
 import HeaderComponent from "../../features/HeaderComponent";
+import { cartConstants as type } from "../../constants";
 
 function formatMoney(number) {
   return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
@@ -17,6 +19,18 @@ export default function ProductViewPage() {
   const { id } = useParams();
   const productMatch = data.products.find((item) => item.id === id);
   const [value, setValue] = useState(1);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  function addToCart() {
+    dispatch({
+      type: type.ADD_TO_CART,
+      payload: {
+        ...productMatch,
+        amount: value
+      }
+    })
+  }
 
   function amoutDecrease() {
     value > 1 ? setValue(value - 1) : setValue(1);
@@ -82,12 +96,21 @@ export default function ProductViewPage() {
             <Button
               className="product-view-page__add-to-cart-button"
               size="large"
-              onClick={() => {console.log("we dispatch action here")}}
+              onClick={addToCart}
             >
               <ShoppingCartOutlined />
               Add to Cart
             </Button>
           </div>
+        </Col>
+        <Col span={24}>
+          <Button 
+          type="link"
+          size="large"
+          onClick={() => {history.goBack()}}
+          >
+            Back
+          </Button>
         </Col>
       </Row>
     </div>

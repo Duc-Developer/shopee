@@ -18,6 +18,8 @@ export default function HeaderComponent() {
   const history = useHistory();
   const fakeKeywords = data.key;
   const user = useSelector((state) => state.auth.user);
+  const cart = useSelector((state) => state.cart);
+
   const handleSearch = (value) => {
     history.push({
       pathname: "/products",
@@ -92,6 +94,9 @@ export default function HeaderComponent() {
             }}
             className="header-component__shopping-cart-icon"
           />
+          <div className="header-component__shopping-cart-totals">
+            <span>{cart.totals}</span>
+          </div>
           <div
             onMouseMove={() => {
               setActive(true);
@@ -103,7 +108,31 @@ export default function HeaderComponent() {
               "header-component__products-cart--is-active": isActive,
             })}
           >
-            cart product here
+            {!cart.products.length ? (
+              <div>
+                <h1>Cart is empty</h1>
+              </div>
+            ) : (
+              cart.products.map((product) => {
+                return (
+                  <div
+                    className="header-component__products-cart-item"
+                    key={product.id}
+                  >
+                    <div className="header-component__products-cart-item-image">
+                      <img src={product.src} alt="cart-product-image" />
+                    </div>
+
+                    <div className="header-component__products-cart-item-name">
+                      <span>{product.name}</span>
+                    </div>
+                    <div className="header-component__products-cart-item-amount">
+                      <span>{product.amount}</span>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </div>
